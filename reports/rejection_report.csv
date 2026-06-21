@@ -1,0 +1,48 @@
+file_path,library,stage,reason,n_points,wavelength_min,wavelength_max,missing_count,quality_score,mineral
+data\raw\RELAB\Calcite\c1ja02a.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=464, reflectance=463']",0,1.0,2600.0,0,,Calcite
+data\raw\RELAB\Diopside\capp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=235, reflectance=234']",0,0.0,82426.0,0,,Diopside
+data\raw\RELAB\Diopside\cbpp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=235, reflectance=234']",0,-99.0,2600.0,0,,Diopside
+data\raw\RELAB\Diopside\ccpp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=236, reflectance=235']",0,-99.0,82426.0,0,,Diopside
+data\raw\RELAB\Diopside\cdpp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=236, reflectance=235']",0,-99.0,82426.0,0,,Diopside
+data\raw\RELAB\Diopside\cepp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=236, reflectance=235']",0,-99.0,82426.0,0,,Diopside
+data\raw\RELAB\Diopside\cfpp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=236, reflectance=235']",0,-99.0,82426.0,0,,Diopside
+data\raw\RELAB\Diopside\cgpp108.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=236, reflectance=235']",0,-99.0,82426.0,0,,Diopside
+data\raw\RELAB\Enstatite\bir1mt361b.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=3529, reflectance=3528']",0,1.0,49859.4,0,,Enstatite
+data\raw\RELAB\Enstatite\c1ae10.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=454, reflectance=453']",0,1.0,2600.0,0,,Enstatite
+data\raw\RELAB\Rutile\c1xm08.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=204, reflectance=203']",0,1.0,2600.0,0,,Rutile
+data\raw\RELAB\Spinel\bir1jg013.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=6280, reflectance=6279']",0,1.0,25050.2,0,,Spinel
+data\raw\RELAB\Spinel\c1jg13.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=466, reflectance=465']",0,1.0,2600.0,0,,Spinel
+data\raw\RELAB\Spinel\c1lr14.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=464, reflectance=463']",0,1.0,72415.0,0,,Spinel
+data\raw\RELAB\Spinel\c2lr14.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=469, reflectance=468']",0,2.0,72415.0,0,,Spinel
+data\raw\RELAB\Spinel\cpfb08.tab,relab,cleaning,"cleaning_failed: ['Length mismatch: wavelengths=463, reflectance=462']",0,8.0,2600.0,0,,Spinel
+data\raw\USGS\Beryl\errorbars_for_S07ASTER_Beryl_GDS9_lt150um_gs_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07ASTER_Beryl_HS180.3B_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07LSAT8_Beryl_GDS9_lt150um_gs_BECKb_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07LSAT8_Beryl_HS180.3B_BECKa_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07SNTL2_Beryl_GDS9_lt150um_gs_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07SNTL2_Beryl_HS180.3B_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07WV3_Beryl_GDS9_lt150um_gs_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Beryl
+data\raw\USGS\Beryl\errorbars_for_S07WV3_Beryl_HS180.3B_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Beryl
+data\raw\USGS\Orthoclase\errorbars_for_S07ASTER_Adularia_GDS57_Orthoclase_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07ASTER_Orthoclase_NMNH113188_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07ASTER_Orthoclase_NMNH142137_Fe_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07LSAT8_Adularia_GDS57_Orthoclase_BECKb_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07LSAT8_Orthoclase_NMNH113188_BECKb_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07LSAT8_Orthoclase_NMNH142137_Fe_BECKb_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07SNTL2_Adularia_GDS57_Orthoclase_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07SNTL2_Orthoclase_NMNH113188_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07SNTL2_Orthoclase_NMNH142137_Fe_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07WV3_Adularia_GDS57_Orthoclase_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Orthoclase
+data\raw\USGS\Orthoclase\errorbars_for_S07WV3_Orthoclase_NMNH113188_BECKb_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Orthoclase
+data\raw\USGS\Rutile\errorbars_for_S07ASTER_Rutile_HS126.3B_BECKc_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Rutile
+data\raw\USGS\Rutile\errorbars_for_S07LSAT8_Rutile_HS126.3B_BECKc_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Rutile
+data\raw\USGS\Rutile\errorbars_for_S07SNTL2_Rutile_HS126.3B_BECKc_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Rutile
+data\raw\USGS\Rutile\errorbars_for_S07WV3_Rutile_HS126.3B_BECKc_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Rutile
+data\raw\USGS\Zircon\errorbars_for_S07ASTER_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Zircon
+data\raw\USGS\Zircon\errorbars_for_S07LSAT8_Zircon_WS522_BECKa_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Zircon
+data\raw\USGS\Zircon\errorbars_for_S07SNTL2_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Zircon
+data\raw\USGS\Zircon\errorbars_for_S07WV3_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Zircon
+data\raw\USGS\Zircon\S07ASTER_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 10 < 50'],0,400.0,409.0,0,,Zircon
+data\raw\USGS\Zircon\S07LSAT8_Zircon_WS522_BECKa_AREF.txt,usgs,parsing,parse_error: Insufficient points: 8,0,,,0,,Zircon
+data\raw\USGS\Zircon\S07SNTL2_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 14 < 50'],0,400.0,413.0,0,,Zircon
+data\raw\USGS\Zircon\S07WV3_Zircon_WS522_BECKa_AREF.txt,usgs,cleaning,cleaning_failed: ['Insufficient valid points: 17 < 50'],0,400.0,416.0,0,,Zircon
