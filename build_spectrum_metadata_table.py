@@ -1,5 +1,4 @@
-"""
-Build the canonical Spectrum Metadata Table.
+"""Build the canonical Spectrum Metadata Table and GSUID mapping.
 
 Constructs ``metadata/spectrum_metadata_table.csv`` from repository data only
 (no Google Drive / external files):
@@ -10,18 +9,26 @@ Constructs ``metadata/spectrum_metadata_table.csv`` from repository data only
 
 Output schema (exact order):
 
-    spectrum_id, mineral_id, source, instrument, sample_name
+    spectrum_id, GSUID, mineral_id, source, instrument, sample_name
+
+Also generates ``metadata/spectrum_gsuid_map.csv`` containing the
+``spectrum_id -> GSUID`` mapping for backward-compatible provenance.
 
 The script never drops rows from ``metadata_database.csv`` and never modifies
 the source files. It is fully reproducible: identical inputs yield identical
-``spectrum_id`` values.
+``spectrum_id`` and ``GSUID`` values.
 """
 
 import os
 import re
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 import pandas as pd
+
+from utils.gsuid import generate_gsuid
 
 BASE_DIR = Path(__file__).resolve().parent
 METADATA_DIR = BASE_DIR / "metadata"
@@ -32,9 +39,10 @@ SPECTRUM_METADATA = METADATA_DIR / "spectrum_metadata.csv"
 MINERAL_METADATA = METADATA_DIR / "mineral_metadata.csv"
 
 OUTPUT_TABLE = METADATA_DIR / "spectrum_metadata_table.csv"
+OUTPUT_GSUID_MAP = METADATA_DIR / "spectrum_gsuid_map.csv"
 OUTPUT_REPORT = REPORTS_DIR / "spectrum_metadata_table_report.md"
 
-SCHEMA = ["spectrum_id", "mineral_id", "source", "instrument", "sample_name"]
+SCHEMA = ["spectrum_id", "GSUID", "mineral_id", "source", "instrument", "sample_name"]
 
 SOURCE_NORMALIZATION = {
     "relab": "RELAB",
@@ -223,9 +231,16 @@ def build_table():
 
     sort_frame["spectrum_id"] = [f"SPC-{i + 1:06d}" for i in range(len(sort_frame))]
 
-    result = sort_frame[SCHEMA].copy()
+    # --- 7. GSUID generation -------------------------------------------------
+    sort_frame["GSUID"] = sort_frame.apply(
+        lambda r: generate_gsuid(r["source_library"], r["original_filename"], r["mineral_name"]),
+        axis=1,
+    )
 
-    return result, n_input, warnings, notes
+    result = sort_frame[SCHEMA].copy()
+    gsuid_map = sort_frame[["spectrum_id", "GSUID"]].copy()
+
+    return result, gsuid_map, n_input, warnings, notes
 
 
 def print_validation(result, n_input):
@@ -256,6 +271,32 @@ def print_validation(result, n_input):
     expected_ids = [f"SPC-{i + 1:06d}" for i in range(total)]
     assert list(result["spectrum_id"]) == expected_ids, "spectrum_id values are not sequential"
     print("Quality checks passed: no dropped rows, unique & sequential spectrum_id.")
+
+    # GSUID validation
+    total_gsuids = result["GSUID"].notna().sum()
+    unique_gsuids = result["GSUID"].nunique()
+    collisions = total_gsuids - unique_gsuids
+    missing_gsuids = int(result["GSUID"].isna().sum())
+
+    print()
+    print("=" * 60)
+    print("GSUID VALIDATION")
+    print("=" * 60)
+    print(f"Total GSUIDs generated: {total_gsuids}")
+    print(f"Unique GSUIDs: {unique_gsuids}")
+    print(f"Collisions: {collisions}")
+    print(f"Missing GSUIDs: {missing_gsuids}")
+    print("-" * 60)
+
+    assert collisions == 0, f"GSUID collisions detected: {collisions}"
+    assert missing_gsuids == 0, f"Missing GSUID values: {missing_gsuids}"
+    assert unique_gsuids == total, f"Unique GSUIDs ({unique_gsuids}) != row count ({total})"
+    print("GSUID quality checks passed: unique, complete, zero collisions.")
+
+    print()
+    print("Sample GSUID mappings (first 10):")
+    for _, row in result[["spectrum_id", "GSUID"]].head(10).iterrows():
+        print(f"  {row['spectrum_id']} -> {row['GSUID']}")
 
     return {
         "total": total,
@@ -341,9 +382,11 @@ def write_report(stats, warnings, notes, n_input):
 
 
 def main():
-    result, n_input, warnings, notes = build_table()
+    result, gsuid_map, n_input, warnings, notes = build_table()
     result.to_csv(OUTPUT_TABLE, index=False)
     print(f"Wrote {OUTPUT_TABLE} ({len(result)} rows)")
+    gsuid_map.to_csv(OUTPUT_GSUID_MAP, index=False)
+    print(f"Wrote {OUTPUT_GSUID_MAP} ({len(gsuid_map)} rows)")
     stats = print_validation(result, n_input)
     write_report(stats, warnings, notes, n_input)
     print(f"Wrote {OUTPUT_REPORT}")
